@@ -41,15 +41,12 @@ export const createAll = async (req, res) => {
 export const updateAll = async (req, res) => {
     try {
         const { id } = req.params;
-        const { titulo, img, descripcion, likes } = req.body;
-        const response = await putAllPostsModel(
-            id,
-            titulo,
-            img,
-            descripcion,
-            likes
+        const { post } = req.body;
+        const posts = await putAllPostsModel(id, posts);
+        res.status(200).send(
+            { posts: post },
+            "Post actualizado correctamente 🫡🫡"
         );
-        res.status(200).send("Post actualizado correctamente 🫡🫡");
     } catch (error) {
         res.status(500).send(error.message);
     }
