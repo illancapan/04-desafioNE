@@ -2,10 +2,9 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import postsRouter from "./src/routes/posts.router.js";
-// import Router from ",/src/routes...";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // MIDDLEWARES
 app.use(express.json());
